@@ -52,8 +52,16 @@ class joinRole extends commando.Command
 
        console.log(addRole);
        if (addRole == true){
-        message.member.addRole(roleRequest);
-        message.reply('joined role: ' + roleRequest);
+           try{
+            message.member.addRole(roleRequest);
+            message.reply('joined role: ' + roleRequest);
+           }//end of try
+           catch(typeerror)
+           {
+                message.reply('role is either mispelled or does not exist...' +  
+                'please try again or contact an administrator for assistance');
+           }//end of catch
+
        }//end of if
        else
        {
