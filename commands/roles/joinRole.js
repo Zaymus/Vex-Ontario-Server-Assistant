@@ -7,7 +7,7 @@ let roleBlackList = [
     'daily',
     'gucci',
     'memer',
-    'robot',
+    'overlords',
 ]
 
 class joinRole extends commando.Command
