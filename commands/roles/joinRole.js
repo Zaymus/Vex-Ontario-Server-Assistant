@@ -56,7 +56,7 @@ class joinRole extends commando.Command
             message.member.addRole(roleRequest);
             message.reply('joined role: ' + roleRequest);
            }//end of try
-           catch(typeerror)
+           catch(e)
            {
                 message.reply('role is either mispelled or does not exist...' +  
                 'please try again or contact an administrator for assistance');
