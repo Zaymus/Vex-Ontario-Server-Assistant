@@ -54,7 +54,7 @@ class joinRole extends commando.Command
        if (addRole == true){
            try{
             message.member.addRole(roleRequest);
-            message.reply('joined role: ' + roleRequest);
+            message.reply('joined role: ' + roleRequest.name);
            }//end of try
            catch(e)
            {
