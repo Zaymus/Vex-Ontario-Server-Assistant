@@ -10,6 +10,15 @@ let roleBlackList = [
     'overlords',
 ]
 
+let gerneralRoles = [
+    'programmers',
+    'drivers',
+    'coaches',
+    'engineers',
+    'captains',
+    'scouts',
+]
+
 class joinRole extends commando.Command
 {
     constructor(client)
@@ -43,7 +52,8 @@ class joinRole extends commando.Command
 
        for(var i = 0; i < roleBlackList.length; i++)
        {
-           if (roleRequest.name.toLowerCase().includes(roleBlackList[i])){
+           if (roleRequest.name.toLowerCase().includes(roleBlackList[i]))
+           {
             addRole = false;
             break;
            }//end of if
@@ -51,12 +61,25 @@ class joinRole extends commando.Command
        }//end of for
 
        console.log(addRole);
-       if (addRole == true){
-           try{
+       if (addRole == true)
+       {
+           try
+           {
             message.member.addRole(roleRequest);
-            message.reply('joined role: ' + roleRequest.name);
+               for(var i = 0; i < generalRoles.length; i++)
+               {
+                   if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
+                   {
+                        message.reply('joined role: ' + roleRequest.name);       
+                   }
+                   else
+                   {
+                       message.reply('joined role: ' + roleRequest);
+                   }
+               }
+            
            }//end of try
-           catch(e)
+           catch (e)
            {
                 message.reply('role is either mispelled or does not exist...' +  
                 'please try again or contact an administrator for assistance');
