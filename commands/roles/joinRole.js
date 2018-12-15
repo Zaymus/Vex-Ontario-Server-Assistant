@@ -65,19 +65,7 @@ class joinRole extends commando.Command
        {
            try
            {
-            message.member.addRole(roleRequest);
-               for(var i = 0; i < generalRoles.length; i++)
-               {
-                   if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
-                   {
-                        message.reply('joined role: ' + roleRequest.name);       
-                   }
-                   else
-                   {
-                       message.reply('joined role: ' + roleRequest);
-                   }
-               }
-            
+            message.member.addRole(roleRequest);            
            }//end of try
            catch (e)
            {
@@ -85,6 +73,17 @@ class joinRole extends commando.Command
                 'please try again or contact an administrator for assistance');
            }//end of catch
 
+           for(var i = 0; i < generalRoles.length; i++)
+               {
+                   if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
+                   {
+                        message.reply('joined role: ' + roleRequest.name);       
+                   }//end of if
+                   else
+                   {
+                       message.reply('joined role: ' + roleRequest);
+                   }//end of else
+               }//end of for
        }//end of if
        else
        {
