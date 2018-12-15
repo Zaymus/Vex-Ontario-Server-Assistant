@@ -2,7 +2,7 @@ const commando = require('discord.js-commando');
 
 let guild;
 
-let roleBlackList = [
+let roleBlackList = [ //roles that no one can join through the bot
     'admin',
     'daily',
     'gucci',
@@ -10,7 +10,7 @@ let roleBlackList = [
     'overlords',
 ]
 
-let gerneralRoles = [
+let gerneralRoles = [ //roles that will not @mention the role
     'programmers',
     'drivers',
     'coaches',
@@ -40,24 +40,24 @@ class joinRole extends commando.Command
 
         let input = message.content;
         
-        let parts = input.split(" ")
+        let reply;
+        
+        let parts = input.split(" ")//splits the command into parts 
         
         console.log("requsting role: " + parts[1]);
         
-        let roleRequest = guild.roles.array().filter(
+        let roleRequest = guild.roles.array().filter( //finds the role object using the input
             r => r.name.toLowerCase().includes(parts[1].toLowerCase())
             )[0];      
 
-       // message.member.addRole(roleRequest);
-
-       for(var i = 0; i < roleBlackList.length; i++)
+       for(var i = 0; i < roleBlackList.length; i++) 
        {
            if (roleRequest.name.toLowerCase().includes(roleBlackList[i]))
            {
             addRole = false;
             break;
            }//end of if
-           console.log(i+1 == roleBlackList.length);
+           console.log(i + 1 == roleBlackList.length);
        }//end of for
 
        console.log(addRole);
@@ -65,31 +65,49 @@ class joinRole extends commando.Command
        {
            try
            {
-            message.member.addRole(roleRequest);            
+            message.member.addRole(roleRequest); //adds the role to the user who sent the command
            }//end of try
            catch (e)
            {
-                message.reply('role is either mispelled or does not exist...' +  
-                'please try again or contact an administrator for assistance');
+               reply = 0;
            }//end of catch
 
            for(var i = 0; i < generalRoles.length; i++)
                {
                    if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                    {
-                        message.reply('joined role: ' + roleRequest.name);       
+                       reply = 1;
                    }//end of if
                    else
                    {
-                       message.reply('joined role: ' + roleRequest);
+                       reply = 2;
                    }//end of else
                }//end of for
        }//end of if
        else
        {
-           message.reply(' has special permissions... please try to join another role');
+           reply = 3;
        }//end of else
-        //message.reply('joined role ' + role);
+        
+        switch(reply) // handles all the replies and to ensure only one message is sent and is the correct message.
+        {
+            case 0:
+               message.reply('role is either mispelled or does not exist...' +  
+               'please try again or contact an administrator for assistance'); //sends a reply to the user
+                break;
+                
+            case 1:
+                message.reply('joined role: ' + roleRequest.name); //replies with a success message without an @mention
+                break;
+                
+            case 2:
+                message.reply('joined role: ' + roleRequest); //replies with a success message with an @mention
+                break;
+                
+            case 3:
+                message.reply(' has special permissions... please try to join another role'); // replies with a denied message
+                break;
+        }//end of switch
     }//end of run
 }//end of class
 
