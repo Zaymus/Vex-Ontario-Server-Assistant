@@ -25,7 +25,7 @@ class joinRole extends commando.Command
     {
         super(client,
         {
-            name: 'joinrole',
+            name: 'joinRole',
             group: 'roles',
             memberName: 'role',
             description: 'adds the user to the role they type'
@@ -44,7 +44,7 @@ class joinRole extends commando.Command
         
         let parts = input.split(" ")//splits the command into parts 
         
-        console.log("requsting role: " + parts[1]);
+        console.log("Requsting role: " + parts[1]);
         
         let roleRequest = guild.roles.array().filter( //finds the role object using the input
             r => r.name.toLowerCase().includes(parts[1].toLowerCase())
@@ -55,9 +55,9 @@ class joinRole extends commando.Command
            if (roleRequest.name.toLowerCase().includes(roleBlackList[i]))
            {
             addRole = false;
+            reply = 3;
             break;
            }//end of if
-           console.log(i + 1 == roleBlackList.length);
        }//end of for
 
        console.log(addRole);
@@ -77,35 +77,34 @@ class joinRole extends commando.Command
                    if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                    {
                        reply = 1;
+                       break;
                    }//end of if
+
                    else
                    {
                        reply = 2;
+                       break;
                    }//end of else
                }//end of for
        }//end of if
-       else
-       {
-           reply = 3;
-       }//end of else
         
         switch(reply) // handles all the replies and to ensure only one message is sent and is the correct message.
         {
             case 0:
-               message.reply('role is either mispelled or does not exist...' +  
+               message.reply('Role is either mispelled or does not exist...' +  
                'please try again or contact an administrator for assistance'); //sends a reply to the user
                 break;
                 
             case 1:
-                message.reply('joined role: ' + roleRequest.name); //replies with a success message without an @mention
+                message.reply('Joined role: ' + roleRequest.name); //replies with a success message without an @mention
                 break;
                 
             case 2:
-                message.reply('joined role: ' + roleRequest); //replies with a success message with an @mention
+                message.reply('Joined role: ' + roleRequest); //replies with a success message with an @mention
                 break;
                 
             case 3:
-                message.reply(' has special permissions... please try to join another role'); // replies with a denied message
+                message.reply(roleRequest.name + ' has special permissions... please try to join another role'); // replies with a denied message without an @mention
                 break;
         }//end of switch
     }//end of run
