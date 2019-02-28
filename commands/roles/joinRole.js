@@ -25,7 +25,7 @@ class joinRole extends commando.Command
     {
         super(client,
         {
-            name: 'joinRole',
+            name: 'joinrole',
             group: 'roles',
             memberName: 'role',
             description: 'adds the user to the role they type'

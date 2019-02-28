@@ -8,7 +8,7 @@ class addRole extends commando.Command
     {
         super(client,
         {
-            name: 'addRole',
+            name: 'addrole',
             group: 'roles',
             memberName: 'role',
             description: 'removes the user from the role they request'
