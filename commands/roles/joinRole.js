@@ -58,7 +58,24 @@ class joinRole extends commando.Command
             reply = 3;
             break;
            }//end of if
-       }//end of for
+           else
+           {
+                for(var i = 0; i < generalRoles.length; i++)
+                {
+                    if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
+                    {
+                        reply = 1;
+                       break;
+                    }//end of if
+
+                    else
+                    {
+                        reply = 2;
+                        break;
+                    }//end of else
+                }//end of for
+            }//end of else
+        }//end of for
 
        console.log(addRole);
        if (addRole == true)
@@ -66,21 +83,6 @@ class joinRole extends commando.Command
            try
            {
             message.member.addRole(roleRequest); //adds the role to the user who sent the command
-            
-            for(var i = 0; i < generalRoles.length; i++)
-            {
-                if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
-                {
-                    reply = 1;
-                    break;
-                }//end of if
-
-                else
-                {
-                    reply = 2;
-                    break;
-                }//end of else
-            }//end of for
            }//end of try
            catch (e)
            {
