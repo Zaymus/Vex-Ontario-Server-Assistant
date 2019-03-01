@@ -1,7 +1,5 @@
 const commando = require('discord.js-commando');
 
-let guild;
-
 let roleBlackList = [ //roles that no one can join through the bot
     'admin',
     'daily',
@@ -36,7 +34,7 @@ class joinRole extends commando.Command
     {
         let addRole = true;
 
-        guild = message.channel.guild;
+        let guild = message.channel.guild;
 
         let input = message.content;
         
@@ -58,23 +56,6 @@ class joinRole extends commando.Command
             reply = 3;
             break;
            }//end of if
-           else
-           {
-                for(var i = 0; i < generalRoles.length; i++)
-                {
-                    if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
-                    {
-                        reply = 1;
-                       break;
-                    }//end of if
-
-                    else
-                    {
-                        reply = 2;
-                        break;
-                    }//end of else
-                }//end of for
-            }//end of else
         }//end of for
 
        console.log(addRole);

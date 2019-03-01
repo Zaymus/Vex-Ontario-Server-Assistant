@@ -23,9 +23,9 @@ bot.on("guildMemberAdd", function(member)
         "\t\t- If you need the assistance of a specific group of people use @ and select a role or a team.\n" +
         "\t\t- Any toxic or unprofessional behavior will not be tolerated.\n" +
         "\t\t- Enjoy yourself.\n" +
-        "If you want to join a role please use ;joinRole + your team's general number (ex. 2560, 5225, 200, 356)\n" + 
-        "If you also want to add your team tag please use ;joinRole + your role(ex. programmer, captain, engineer, scout)\n" +
-        "If you have any issues with  this bot please dm Carson from 2560 for assistance!" 
+        "If you want to join your team please use ;joinRole + your team's general number (ex. 2560, 5225, 200, 356)\n" + 
+        "If you also want to add your team role please use ;joinRole + your role(ex. programmer, captain, engineer, scout)\n" +
+        "If you have any issues with this bot please dm Carson from 2560 for assistance!" 
         )//end of new member dm
 });
 
