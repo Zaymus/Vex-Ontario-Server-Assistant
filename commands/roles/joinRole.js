@@ -34,6 +34,8 @@ class joinRole extends commando.Command
     {
         let addRole = true;
 
+        let general = false;
+
         let guild = message.channel.guild;
 
         let input = message.content;
@@ -58,26 +60,22 @@ class joinRole extends commando.Command
            }//end of if
         }//end of for
 
-        console.log(roleRequest.name);
         console.log(addRole);
 
        if (addRole == true)
        {
             for(var i = 0; i < generalRoles.length; i++)
             {
-                console.log("request: " + roleRequest.name + " , generalRole: " + generalRoles[i]);
                 if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                 {
-                    reply = 2;
+                    general = false;
                     break;
                 }//end of if
-
-                else
-                {
-                    reply = 1;
-                    break;
-                }//end of else
             }//end of for
+
+            if (general)    {reply = 1;}//end of if
+
+            else            {reply = 2;}//end of else
 
            try
            {
