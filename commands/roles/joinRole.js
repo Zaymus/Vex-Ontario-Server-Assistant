@@ -66,27 +66,29 @@ class joinRole extends commando.Command
            try
            {
             message.member.addRole(roleRequest); //adds the role to the user who sent the command
+            
+            for(var i = 0; i < generalRoles.length; i++)
+            {
+                if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
+                {
+                    reply = 1;
+                    break;
+                }//end of if
+
+                else
+                {
+                    reply = 2;
+                    break;
+                }//end of else
+            }//end of for
            }//end of try
            catch (e)
            {
                reply = 0;
            }//end of catch
 
-           for(var i = 0; i < generalRoles.length; i++)
-               {
-                   if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
-                   {
-                       reply = 1;
-                       break;
-                   }//end of if
-
-                   else
-                   {
-                       reply = 2;
-                       break;
-                   }//end of else
-               }//end of for
-       }//end of if
+           
+        }//end of if
         
         switch(reply) // handles all the replies and to ensure only one message is sent and is the correct message.
         {
