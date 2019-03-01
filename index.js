@@ -3,7 +3,7 @@ const bot = new commando.Client({
     commandPrefix: ';'
 });
 
-const token = 'NTE2NDQ4NTI4NjQ2Nzk5MzYw.Dun_Rw.o4_XNrtbtBxWzkvAePvrqn1gEY8';
+const token = 'NTE2NDQ4NTI4NjQ2Nzk5MzYw.D1s7pA.ndBIqQitCNzR5BAMDX0fiPu65JY';
 
 bot.registry.registerGroup('games', 'Games');
 bot.registry.registerGroup('roles', 'Roles');
