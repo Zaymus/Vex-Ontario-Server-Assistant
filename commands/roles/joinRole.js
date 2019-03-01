@@ -10,7 +10,7 @@ let roleBlackList = [ //roles that no one can join through the bot
     'overlords',
 ]
 
-let gerneralRoles = [ //roles that will not @mention the role
+let generalRoles = [ //roles that will not @mention the role
     'programmers',
     'drivers',
     'coaches',
