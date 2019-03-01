@@ -40,7 +40,7 @@ class joinRole extends commando.Command
 
         let input = message.content;
         
-        let reply = 0;
+        let reply = 2;
         
         let parts = input.split(" ")//splits the command into parts 
         
@@ -68,14 +68,10 @@ class joinRole extends commando.Command
             {
                 if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                 {
-                    general = false;
+                    reply = 1;
                     break;
                 }//end of if
             }//end of for
-
-            if (general)    {reply = 1;}//end of if
-
-            else            {reply = 2;}//end of else
 
            try
            {
