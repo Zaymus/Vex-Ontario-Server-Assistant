@@ -67,13 +67,13 @@ class joinRole extends commando.Command
             {
                 if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                 {
-                    reply = 1;
+                    reply = 2;
                 break;
                 }//end of if
 
                 else
                 {
-                    reply = 2;
+                    reply = 1;
                     break;
                 }//end of else
             }//end of for
