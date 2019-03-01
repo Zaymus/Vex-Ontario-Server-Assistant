@@ -58,13 +58,14 @@ class joinRole extends commando.Command
            }//end of if
         }//end of for
 
+        console.log(roleRequest.name);
         console.log(addRole);
 
        if (addRole == true)
        {
             for(var i = 0; i < generalRoles.length; i++)
             {
-                if (!roleRequest.name.toLowerCase().includes(generalRoles[i]))
+                if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                 {
                     reply = 2;
                     break;
@@ -76,8 +77,6 @@ class joinRole extends commando.Command
                     break;
                 }//end of else
             }//end of for
-            console.log(roleRequest.name.toLowerCase().includes(generalRoles[i]));
-            console.log(!roleRequest.name.toLowerCase().includes(generalRoles[i]));
            try
            {
             message.member.addRole(roleRequest); //adds the role to the user who sent the command
