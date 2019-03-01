@@ -65,6 +65,7 @@ class joinRole extends commando.Command
        {
             for(var i = 0; i < generalRoles.length; i++)
             {
+                console,log("request: " + roleRequest.name + " , generalRole: " + generalRoles[i]);
                 if (roleRequest.name.toLowerCase().includes(generalRoles[i]))
                 {
                     reply = 2;
