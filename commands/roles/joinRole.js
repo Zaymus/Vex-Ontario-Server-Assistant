@@ -38,7 +38,7 @@ class joinRole extends commando.Command
 
         let input = message.content;
         
-        let reply;
+        let reply = 0;
         
         let parts = input.split(" ")//splits the command into parts 
         
@@ -58,7 +58,8 @@ class joinRole extends commando.Command
            }//end of if
         }//end of for
 
-       console.log(addRole);
+        console.log(addRole);
+        console.log(reply);
 
        if (addRole == true)
        {
@@ -76,6 +77,7 @@ class joinRole extends commando.Command
                     break;
                 }//end of else
             }//end of for
+            console.log(reply);
            try
            {
             message.member.addRole(roleRequest); //adds the role to the user who sent the command
